@@ -11,8 +11,8 @@
   DTS:LocaleID="1041"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="7"
-  DTS:VersionGUID="{91EEB218-C454-430C-A922-27075EF48FA1}">
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{70E04F4D-B9E3-4487-8D3B-D5E1A204A1FD}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -223,7 +223,7 @@ WHERE [CurrencyCode]
 IN ('ARS', 'AUD', 'BRL', 'CAD', 'CNY',
     'DEM', 'EUR', 'FRF', 'GBP', 'JPY',
     'MXN', 'SAR', 'USD', 'VEB')) [refTable]
-where [refTable].[CurrencyAlternateKey] = ?</property>
+where [refTable].[CurrencyCode] = ?</property>
                 <property
                   dataType="System.Int32"
                   description="参照データセットへのアクセスに使用する接続の種類を指定します。"
@@ -292,7 +292,7 @@ where [refTable].[CurrencyAlternateKey] = ?</property>
                         <property
                           dataType="System.String"
                           description="列の結合対象となる参照テーブル内の列を指定します。"
-                          name="JoinToReferenceColumn">CurrencyAlternateKey</property>
+                          name="JoinToReferenceColumn">CurrencyCode</property>
                         <property
                           dataType="System.Null"
                           description="列のコピー元となる参照テーブルの列を指定します。"
@@ -487,6 +487,151 @@ where [refTable].[FullDateAlternateKey] = ?</property>
                 </output>
               </outputs>
             </component>
+            <component
+              refId="Package\Extract Sample Currency Data\Sample OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB 変換先;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB 変換先"
+              name="Sample OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="コマンドがタイムアウトするまでの秒数。値 0 はタイムアウトしないことを表します。"
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="行セットを開くために使用するデータベース オブジェクトの名前を指定します。"
+                  name="OpenRowset">[Sample OLE DB Destination]</property>
+                <property
+                  dataType="System.String"
+                  description="行セットを開くために使用するデータベース オブジェクトの名前を含む変数を指定します。"
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="実行する SQL コマンド。"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="データ ソースからコード ページ情報を利用できないときに使用する列コード ページを指定します。"
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="文字データを説明するときに、DefaultCodePage プロパティの値を強制的に使用します。"
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="データベースへのアクセスに使用するモードを指定します。"
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="ID 列に指定されている値がコピー先の列にコピーされるかどうかを示します。False の場合、ID 列の値がコピー先の列で自動生成されます。高速読み込みが有効になっている場合にのみ適用されます。"
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="NULL を含む列から挿入先の列に NULL が挿入されるかどうかを示します。False の場合、NULL を含む列から挿入先の列に、既定値が挿入されます。高速読み込みが有効になっている場合にのみ適用されます。"
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="高速読み込みで使用するオプションを指定します。高速読み込みが有効になっている場合にのみ適用されます。"
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="データの挿入中にコミットを発行する時期を指定します。値 0 を指定すると、1 つのコミットがデータ挿入の終了時に実行されます。高速読み込みが有効になっている場合にのみ適用されます。"
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Extract Sample Currency Data\Sample OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{C3ABF382-2FA1-4270-98F3-D2FC7F203CE6}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[20.194.173.100.AdventureWorksDW2012.saadmin]"
+                  description="データベースへのアクセスに使用する OLE DB ランタイム接続。"
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Extract Sample Currency Data\Sample OLE DB Destination.Inputs[OLE DB 変換先の入力]"
+                  errorOrTruncationOperation="挿入"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB 変換先の入力">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Extract Sample Currency Data\Sample OLE DB Destination.Inputs[OLE DB 変換先の入力].Columns[AverageRate]"
+                      cachedDataType="r4"
+                      cachedName="AverageRate"
+                      externalMetadataColumnId="Package\Extract Sample Currency Data\Sample OLE DB Destination.Inputs[OLE DB 変換先の入力].ExternalColumns[AverageRate]"
+                      lineageId="Package\Extract Sample Currency Data\Extract Sample Currency Data.Outputs[フラット ファイル ソースの出力].Columns[AverageRate]" />
+                    <inputColumn
+                      refId="Package\Extract Sample Currency Data\Sample OLE DB Destination.Inputs[OLE DB 変換先の入力].Columns[CurrencyID]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="CurrencyID"
+                      externalMetadataColumnId="Package\Extract Sample Currency Data\Sample OLE DB Destination.Inputs[OLE DB 変換先の入力].ExternalColumns[CurrencyID]"
+                      lineageId="Package\Extract Sample Currency Data\Extract Sample Currency Data.Outputs[フラット ファイル ソースの出力].Columns[CurrencyID]" />
+                    <inputColumn
+                      refId="Package\Extract Sample Currency Data\Sample OLE DB Destination.Inputs[OLE DB 変換先の入力].Columns[CurrencyDate]"
+                      cachedDataType="dbDate"
+                      cachedName="CurrencyDate"
+                      externalMetadataColumnId="Package\Extract Sample Currency Data\Sample OLE DB Destination.Inputs[OLE DB 変換先の入力].ExternalColumns[CurrencyDate]"
+                      lineageId="Package\Extract Sample Currency Data\Extract Sample Currency Data.Outputs[フラット ファイル ソースの出力].Columns[CurrencyDate]" />
+                    <inputColumn
+                      refId="Package\Extract Sample Currency Data\Sample OLE DB Destination.Inputs[OLE DB 変換先の入力].Columns[EndOfDayRate]"
+                      cachedDataType="r4"
+                      cachedName="EndOfDayRate"
+                      externalMetadataColumnId="Package\Extract Sample Currency Data\Sample OLE DB Destination.Inputs[OLE DB 変換先の入力].ExternalColumns[EndOfDayRate]"
+                      lineageId="Package\Extract Sample Currency Data\Extract Sample Currency Data.Outputs[フラット ファイル ソースの出力].Columns[EndOfDayRate]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Extract Sample Currency Data\Sample OLE DB Destination.Inputs[OLE DB 変換先の入力].ExternalColumns[AverageRate]"
+                      dataType="r4"
+                      name="AverageRate" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Sample Currency Data\Sample OLE DB Destination.Inputs[OLE DB 変換先の入力].ExternalColumns[CurrencyID]"
+                      dataType="wstr"
+                      length="3"
+                      name="CurrencyID" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Sample Currency Data\Sample OLE DB Destination.Inputs[OLE DB 変換先の入力].ExternalColumns[CurrencyDate]"
+                      dataType="dbDate"
+                      name="CurrencyDate" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Sample Currency Data\Sample OLE DB Destination.Inputs[OLE DB 変換先の入力].ExternalColumns[EndOfDayRate]"
+                      dataType="r4"
+                      name="EndOfDayRate" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Extract Sample Currency Data\Sample OLE DB Destination.Outputs[OLE DB 変換先のエラー出力]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB 変換先のエラー出力"
+                  synchronousInputId="Package\Extract Sample Currency Data\Sample OLE DB Destination.Inputs[OLE DB 変換先の入力]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extract Sample Currency Data\Sample OLE DB Destination.Outputs[OLE DB 変換先のエラー出力].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Extract Sample Currency Data\Sample OLE DB Destination.Outputs[OLE DB 変換先のエラー出力].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Extract Sample Currency Data\Sample OLE DB Destination.Outputs[OLE DB 変換先のエラー出力].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Extract Sample Currency Data\Sample OLE DB Destination.Outputs[OLE DB 変換先のエラー出力].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
           </components>
           <paths>
             <path
@@ -499,6 +644,11 @@ where [refTable].[FullDateAlternateKey] = ?</property>
               endId="Package\Extract Sample Currency Data\Lookup Date Key.Inputs[参照の入力]"
               name="参照の一致出力"
               startId="Package\Extract Sample Currency Data\Lookup Currency Key.Outputs[参照の一致出力]" />
+            <path
+              refId="Package\Extract Sample Currency Data.Paths[参照の一致出力1]"
+              endId="Package\Extract Sample Currency Data\Sample OLE DB Destination.Inputs[OLE DB 変換先の入力]"
+              name="参照の一致出力"
+              startId="Package\Extract Sample Currency Data\Lookup Date Key.Outputs[参照の一致出力]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -616,6 +766,46 @@ where [refTable].[FullDateAlternateKey] = ?</property>
           Size="502.333333333334,72"
           Id="e9ac4ecd-7aed-4601-accc-77541876b5c7"
           TopLeft="80.7291656375552,3.16666867556389" />
+        <NodeLayout
+          Size="220,42"
+          Id="Package\Extract Sample Currency Data\Sample OLE DB Destination"
+          TopLeft="195.62499708496,389.944436542782" />
+        <EdgeLayout
+          Id="Package\Extract Sample Currency Data.Paths[参照の一致出力1]"
+          TopLeft="294.135414014726,328.435178109403">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="11.4895830702347,61.5092584333794"
+              Start="0,0"
+              End="11.4895830702347,54.0092584333794">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.7546292166897" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.7546292166897"
+                    Point2="0,30.7546292166897"
+                    Point3="4,30.7546292166897" />
+                  <mssgle:LineSegment
+                    End="7.48958307023474,30.7546292166897" />
+                  <mssgle:CubicBezierSegment
+                    Point1="7.48958307023474,30.7546292166897"
+                    Point2="11.4895830702347,30.7546292166897"
+                    Point3="11.4895830702347,34.7546292166897" />
+                  <mssgle:LineSegment
+                    End="11.4895830702347,54.0092584333794" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-28.4196811211326,35.7546292166897,68.3289453125,11.0771484375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
@@ -662,6 +852,19 @@ where [refTable].[FullDateAlternateKey] = ?</property>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Extract Sample Currency Data\Sample OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

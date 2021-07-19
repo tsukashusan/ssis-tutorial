@@ -8,7 +8,7 @@
       DTS:ConnectionString="Data Source=20.194.173.100;User ID=saadmin;Initial Catalog=AdventureWorksDW2012;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;">
       <DTS:Password
         DTS:Name="Password"
-        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA+BJ/KnxLmE2qjaUeCeqv2gAAAAACAAAAAAAQZgAAAAEAACAAAABSeeov4BnDLCDBugyAQkjlZYZGYM7lQFHf5Zu3+mQZkQAAAAAOgAAAAAIAACAAAACfeoLJJRAUIJR/qD9WtBfWBW25BtkKRfdWvdSvrN9D1IAAAACrCJZIHP0g+n3bxmULwpALb7DLmV7WEl+DQ8MBOn7URJx327GsjYniBR5WxB5jQhJbqLngpNPWgq08uoVIza8rOncvHdNpbUV4OhSlUvP4fRpQ1I+gf7qSzOPi2J+a4PirAd1Y0pCDqDeWOKruTprD+i4AhrixHfTHxn7MaEvYo0AAAAANcKkS5qH5Rq3HfaehlMmcxEGO/yq0/PFBMhj6HSNwoqMksfn7zEF8VP0Lckwm9O8tgOMsoSPFlHwrdhmwv4ID</DTS:Password>
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA+BJ/KnxLmE2qjaUeCeqv2gAAAAACAAAAAAAQZgAAAAEAACAAAAAfHm0JEJj1WmTYLH5xNZwEofHJ1IUYza8Tf/DUfYSNlAAAAAAOgAAAAAIAACAAAACdJiH88Fpif5Z+o/0m3gL98rvOfScYckQzT/S9E1mmrIAAAAD+7VC7XOWBlP8Egm/6cbGeuExs6gLbo9klFwo46VJLiqRLOG49BHz7hAyVdpv56xYMCVO47r0gpuNRVlQMgPnKcarXO2m4zCrJur660ywhqEUkocCfgyxbMkrXDJmPQl/AoELHvakuubXaH5Pd36Sd7i4gr0P9AlXcmZfITuPqXkAAAAA83hKmNkPPGrv/kYtJVGQTO8mtjnLqywhsZuHclr9IG0+IWE8XZMItlejebCKIB0/Qk2Ysvy7XbSKJSiUofVW5</DTS:Password>
     </DTS:ConnectionManager>
   </DTS:ObjectData>
 </DTS:ConnectionManager>
