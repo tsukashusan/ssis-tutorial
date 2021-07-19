@@ -1,0 +1,669 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="7/19/2021 12:58:27 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LAPTOP-V73GTR6A"
+  DTS:CreatorName="FAREAST\shtsukam"
+  DTS:DTSID="{319EEAE1-0DDE-4C90-94AE-F6B5299CC51F}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.157"
+  DTS:LocaleID="1041"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="7"
+  DTS:VersionGUID="{91EEB218-C454-430C-A922-27075EF48FA1}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Extract Sample Currency Data"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="データ フロー タスク"
+      DTS:DTSID="{D59DA597-B911-44FE-9887-E4267C3CF211}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="1033"
+      DTS:ObjectName="Extract Sample Currency Data"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Extract Sample Currency Data\Extract Sample Currency Data"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="フラット ファイル ソース;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="フラット ファイル ソース"
+              localeId="1033"
+              name="Extract Sample Currency Data"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="長さ 0 の列を NULL として扱うかどうかを指定します。"
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="ファイル名を含む出力列の名前を指定します。名前を指定しないと、ファイル名を含む出力列は生成されません。"
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Extract Sample Currency Data\Extract Sample Currency Data.Connections[FlatFileConnection]"
+                  connectionManagerID="{F83C9FD9-6402-4130-8964-EFDAF6AD9B73}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Sample Flat File Source Data]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Extract Sample Currency Data\Extract Sample Currency Data.Outputs[フラット ファイル ソースの出力]"
+                  name="フラット ファイル ソースの出力">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extract Sample Currency Data\Extract Sample Currency Data.Outputs[フラット ファイル ソースの出力].Columns[AverageRate]"
+                      dataType="r4"
+                      errorOrTruncationOperation="変換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extract Sample Currency Data\Extract Sample Currency Data.Outputs[フラット ファイル ソースの出力].ExternalColumns[AverageRate]"
+                      lineageId="Package\Extract Sample Currency Data\Extract Sample Currency Data.Outputs[フラット ファイル ソースの出力].Columns[AverageRate]"
+                      name="AverageRate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="列で高速なニュートラル ロケールの解析ルーチンを使用するかどうかを示します。"
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="データがバイナリ形式であるかどうかを示します。"
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Extract Sample Currency Data\Extract Sample Currency Data.Outputs[フラット ファイル ソースの出力].Columns[CurrencyID]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="変換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extract Sample Currency Data\Extract Sample Currency Data.Outputs[フラット ファイル ソースの出力].ExternalColumns[CurrencyID]"
+                      length="50"
+                      lineageId="Package\Extract Sample Currency Data\Extract Sample Currency Data.Outputs[フラット ファイル ソースの出力].Columns[CurrencyID]"
+                      name="CurrencyID"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="列で高速なニュートラル ロケールの解析ルーチンを使用するかどうかを示します。"
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="データがバイナリ形式であるかどうかを示します。"
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Extract Sample Currency Data\Extract Sample Currency Data.Outputs[フラット ファイル ソースの出力].Columns[CurrencyDate]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="変換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extract Sample Currency Data\Extract Sample Currency Data.Outputs[フラット ファイル ソースの出力].ExternalColumns[CurrencyDate]"
+                      lineageId="Package\Extract Sample Currency Data\Extract Sample Currency Data.Outputs[フラット ファイル ソースの出力].Columns[CurrencyDate]"
+                      name="CurrencyDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="列で高速なニュートラル ロケールの解析ルーチンを使用するかどうかを示します。"
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="データがバイナリ形式であるかどうかを示します。"
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Extract Sample Currency Data\Extract Sample Currency Data.Outputs[フラット ファイル ソースの出力].Columns[EndOfDayRate]"
+                      dataType="r4"
+                      errorOrTruncationOperation="変換"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Extract Sample Currency Data\Extract Sample Currency Data.Outputs[フラット ファイル ソースの出力].ExternalColumns[EndOfDayRate]"
+                      lineageId="Package\Extract Sample Currency Data\Extract Sample Currency Data.Outputs[フラット ファイル ソースの出力].Columns[EndOfDayRate]"
+                      name="EndOfDayRate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="列で高速なニュートラル ロケールの解析ルーチンを使用するかどうかを示します。"
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="データがバイナリ形式であるかどうかを示します。"
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Extract Sample Currency Data\Extract Sample Currency Data.Outputs[フラット ファイル ソースの出力].ExternalColumns[AverageRate]"
+                      dataType="r4"
+                      name="AverageRate" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Sample Currency Data\Extract Sample Currency Data.Outputs[フラット ファイル ソースの出力].ExternalColumns[CurrencyID]"
+                      dataType="wstr"
+                      length="3"
+                      name="CurrencyID" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Sample Currency Data\Extract Sample Currency Data.Outputs[フラット ファイル ソースの出力].ExternalColumns[CurrencyDate]"
+                      dataType="dbDate"
+                      name="CurrencyDate" />
+                    <externalMetadataColumn
+                      refId="Package\Extract Sample Currency Data\Extract Sample Currency Data.Outputs[フラット ファイル ソースの出力].ExternalColumns[EndOfDayRate]"
+                      dataType="r4"
+                      name="EndOfDayRate" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Extract Sample Currency Data\Extract Sample Currency Data.Outputs[フラット ファイル ソースのエラー出力]"
+                  isErrorOut="true"
+                  name="フラット ファイル ソースのエラー出力">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extract Sample Currency Data\Extract Sample Currency Data.Outputs[フラット ファイル ソースのエラー出力].Columns[フラット ファイル ソースのエラー出力列]"
+                      codePage="1252"
+                      dataType="text"
+                      description="フラット ファイル ソースのエラー出力列"
+                      lineageId="Package\Extract Sample Currency Data\Extract Sample Currency Data.Outputs[フラット ファイル ソースのエラー出力].Columns[フラット ファイル ソースのエラー出力列]"
+                      name="フラット ファイル ソースのエラー出力列" />
+                    <outputColumn
+                      refId="Package\Extract Sample Currency Data\Extract Sample Currency Data.Outputs[フラット ファイル ソースのエラー出力].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Extract Sample Currency Data\Extract Sample Currency Data.Outputs[フラット ファイル ソースのエラー出力].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Extract Sample Currency Data\Extract Sample Currency Data.Outputs[フラット ファイル ソースのエラー出力].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Extract Sample Currency Data\Extract Sample Currency Data.Outputs[フラット ファイル ソースのエラー出力].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Extract Sample Currency Data\Lookup Currency Key"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="参照;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="テーブルの値を参照してデータ フローに追加の列を結合します。たとえば、employees テーブルの 'employee id' 列に結合して 'hire date' と 'employee name' を取得することができます。この変換は、参照テーブルがメモリに収まる場合に推奨されます。"
+              name="Lookup Currency Key"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="参照テーブルを生成する SQL ステートメントを指定します。"
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT * FROM [Sales].[Currency]
+WHERE [CurrencyCode]
+IN ('ARS', 'AUD', 'BRL', 'CAD', 'CNY',
+    'DEM', 'EUR', 'FRF', 'GBP', 'JPY',
+    'MXN', 'SAR', 'USD', 'VEB')</property>
+                <property
+                  dataType="System.String"
+                  description="パラメーターを使用して参照テーブルを生成する SQL ステートメントを指定します。"
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT * FROM [Sales].[Currency]
+WHERE [CurrencyCode]
+IN ('ARS', 'AUD', 'BRL', 'CAD', 'CNY',
+    'DEM', 'EUR', 'FRF', 'GBP', 'JPY',
+    'MXN', 'SAR', 'USD', 'VEB')) [refTable]
+where [refTable].[CurrencyAlternateKey] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="参照データセットへのアクセスに使用する接続の種類を指定します。"
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="参照テーブルのキャッシュの種類を指定します。"
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="参照データセット内に一致するエントリがない行を参照変換で処理する方法を指定します。"
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="参照データセット内に一致するエントリがない行に割り当てられるキャッシュの比率を指定します。"
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="32 ビット プラットフォームでの参照キャッシュの最大メモリ使用量。"
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="64 ビット プラットフォームでの参照キャッシュの最大メモリ使用量。"
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="XML 形式のメタデータを参照するかどうかを示します。"
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="CurrencyCode" dataType="DT_WSTR" length="3" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Name" dataType="DT_WSTR" length="128" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ModifiedDate" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CurrencyAlternateKey" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="SQLCommand プロパティの SQL ステートメントで使用するパラメーターにマップする系列 ID の一覧を指定します。一覧内のエントリは、セミコロンで区切られます。"
+                  name="ParameterMap">#{Package\Extract Sample Currency Data\Extract Sample Currency Data.Outputs[フラット ファイル ソースの出力].Columns[CurrencyID]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="データ ソースからコード ページ情報を利用できないときに使用する列コード ページを指定します。"
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="フル キャッシュ モードを使用する場合に参照データの重複キーをエラーとして処理するかどうかを指定します。"
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Extract Sample Currency Data\Lookup Currency Key.Connections[OleDbConnection]"
+                  connectionManagerID="{C3ABF382-2FA1-4270-98F3-D2FC7F203CE6}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[20.194.173.100.AdventureWorksDW2012.saadmin]"
+                  description="参照データへのアクセスに使用する接続マネージャー。"
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Extract Sample Currency Data\Lookup Currency Key.Inputs[参照の入力]"
+                  name="参照の入力">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Extract Sample Currency Data\Lookup Currency Key.Inputs[参照の入力].Columns[CurrencyID]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="CurrencyID"
+                      lineageId="Package\Extract Sample Currency Data\Extract Sample Currency Data.Outputs[フラット ファイル ソースの出力].Columns[CurrencyID]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="列の結合対象となる参照テーブル内の列を指定します。"
+                          name="JoinToReferenceColumn">CurrencyAlternateKey</property>
+                        <property
+                          dataType="System.Null"
+                          description="列のコピー元となる参照テーブルの列を指定します。"
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Extract Sample Currency Data\Lookup Currency Key.Outputs[参照の一致出力]"
+                  errorOrTruncationOperation="参照"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="参照の一致出力"
+                  synchronousInputId="Package\Extract Sample Currency Data\Lookup Currency Key.Inputs[参照の入力]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Extract Sample Currency Data\Lookup Currency Key.Outputs[参照の不一致出力]"
+                  description="参照データセット内に一致するエントリがない行を処理する参照の出力。この出力は、NoMatchBehavior プロパティを &quot;一致するエントリがない行を不一致出力に送信します&quot; に設定した場合に使用します。"
+                  exclusionGroup="1"
+                  name="参照の不一致出力"
+                  synchronousInputId="Package\Extract Sample Currency Data\Lookup Currency Key.Inputs[参照の入力]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Extract Sample Currency Data\Lookup Currency Key.Outputs[参照のエラー出力]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="参照のエラー出力"
+                  synchronousInputId="Package\Extract Sample Currency Data\Lookup Currency Key.Inputs[参照の入力]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extract Sample Currency Data\Lookup Currency Key.Outputs[参照のエラー出力].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Extract Sample Currency Data\Lookup Currency Key.Outputs[参照のエラー出力].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Extract Sample Currency Data\Lookup Currency Key.Outputs[参照のエラー出力].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Extract Sample Currency Data\Lookup Currency Key.Outputs[参照のエラー出力].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Extract Sample Currency Data\Lookup Date Key"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="参照;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="テーブルの値を参照してデータ フローに追加の列を結合します。たとえば、employees テーブルの 'employee id' 列に結合して 'hire date' と 'employee name' を取得することができます。この変換は、参照テーブルがメモリに収まる場合に推奨されます。"
+              name="Lookup Date Key"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="参照テーブルを生成する SQL ステートメントを指定します。"
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[DimDate]</property>
+                <property
+                  dataType="System.String"
+                  description="パラメーターを使用して参照テーブルを生成する SQL ステートメントを指定します。"
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[DimDate]) [refTable]
+where [refTable].[FullDateAlternateKey] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="参照データセットへのアクセスに使用する接続の種類を指定します。"
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="参照テーブルのキャッシュの種類を指定します。"
+                  name="CacheType"
+                  typeConverter="CacheType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="参照データセット内に一致するエントリがない行を参照変換で処理する方法を指定します。"
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="参照データセット内に一致するエントリがない行に割り当てられるキャッシュの比率を指定します。"
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="32 ビット プラットフォームでの参照キャッシュの最大メモリ使用量。"
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="64 ビット プラットフォームでの参照キャッシュの最大メモリ使用量。"
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="XML 形式のメタデータを参照するかどうかを示します。"
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="DateKey" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="FullDateAlternateKey" dataType="DT_DBDATE" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DayNumberOfWeek" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="EnglishDayNameOfWeek" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SpanishDayNameOfWeek" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="FrenchDayNameOfWeek" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DayNumberOfMonth" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="DayNumberOfYear" dataType="DT_I2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="WeekNumberOfYear" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="EnglishMonthName" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SpanishMonthName" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="FrenchMonthName" dataType="DT_WSTR" length="10" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="MonthNumberOfYear" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CalendarQuarter" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CalendarYear" dataType="DT_I2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CalendarSemester" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="FiscalQuarter" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="FiscalYear" dataType="DT_I2" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="FiscalSemester" dataType="DT_UI1" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="SQLCommand プロパティの SQL ステートメントで使用するパラメーターにマップする系列 ID の一覧を指定します。一覧内のエントリは、セミコロンで区切られます。"
+                  name="ParameterMap">#{Package\Extract Sample Currency Data\Extract Sample Currency Data.Outputs[フラット ファイル ソースの出力].Columns[CurrencyDate]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="データ ソースからコード ページ情報を利用できないときに使用する列コード ページを指定します。"
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="フル キャッシュ モードを使用する場合に参照データの重複キーをエラーとして処理するかどうかを指定します。"
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Extract Sample Currency Data\Lookup Date Key.Connections[OleDbConnection]"
+                  connectionManagerID="{C3ABF382-2FA1-4270-98F3-D2FC7F203CE6}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[20.194.173.100.AdventureWorksDW2012.saadmin]"
+                  description="参照データへのアクセスに使用する接続マネージャー。"
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Extract Sample Currency Data\Lookup Date Key.Inputs[参照の入力]"
+                  name="参照の入力">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Extract Sample Currency Data\Lookup Date Key.Inputs[参照の入力].Columns[CurrencyDate]"
+                      cachedDataType="dbDate"
+                      cachedName="CurrencyDate"
+                      lineageId="Package\Extract Sample Currency Data\Extract Sample Currency Data.Outputs[フラット ファイル ソースの出力].Columns[CurrencyDate]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="列の結合対象となる参照テーブル内の列を指定します。"
+                          name="JoinToReferenceColumn">FullDateAlternateKey</property>
+                        <property
+                          dataType="System.Null"
+                          description="列のコピー元となる参照テーブルの列を指定します。"
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Extract Sample Currency Data\Lookup Date Key.Outputs[参照の一致出力]"
+                  errorOrTruncationOperation="参照"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="参照の一致出力"
+                  synchronousInputId="Package\Extract Sample Currency Data\Lookup Date Key.Inputs[参照の入力]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Extract Sample Currency Data\Lookup Date Key.Outputs[参照の不一致出力]"
+                  description="参照データセット内に一致するエントリがない行を処理する参照の出力。この出力は、NoMatchBehavior プロパティを &quot;一致するエントリがない行を不一致出力に送信します&quot; に設定した場合に使用します。"
+                  exclusionGroup="1"
+                  name="参照の不一致出力"
+                  synchronousInputId="Package\Extract Sample Currency Data\Lookup Date Key.Inputs[参照の入力]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Extract Sample Currency Data\Lookup Date Key.Outputs[参照のエラー出力]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="参照のエラー出力"
+                  synchronousInputId="Package\Extract Sample Currency Data\Lookup Date Key.Inputs[参照の入力]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Extract Sample Currency Data\Lookup Date Key.Outputs[参照のエラー出力].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Extract Sample Currency Data\Lookup Date Key.Outputs[参照のエラー出力].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Extract Sample Currency Data\Lookup Date Key.Outputs[参照のエラー出力].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Extract Sample Currency Data\Lookup Date Key.Outputs[参照のエラー出力].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Extract Sample Currency Data.Paths[フラット ファイル ソースの出力]"
+              endId="Package\Extract Sample Currency Data\Lookup Currency Key.Inputs[参照の入力]"
+              name="フラット ファイル ソースの出力"
+              startId="Package\Extract Sample Currency Data\Extract Sample Currency Data.Outputs[フラット ファイル ソースの出力]" />
+            <path
+              refId="Package\Extract Sample Currency Data.Paths[参照の一致出力]"
+              endId="Package\Extract Sample Currency Data\Lookup Date Key.Inputs[参照の入力]"
+              name="参照の一致出力"
+              startId="Package\Extract Sample Currency Data\Lookup Currency Key.Outputs[参照の一致出力]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:EventHandlers>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnError]"
+      DTS:CreationName="OnError"
+      DTS:DTSID="{C06C2ACD-9771-41D9-A937-453508A26F86}"
+      DTS:EventID="0"
+      DTS:EventName="OnError"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="イベントの反映プロパティです"
+          DTS:DTSID="{8C5635A0-C1F3-4BCA-80FB-B141F0E7C358}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables />
+    </DTS:EventHandler>
+  </DTS:EventHandlers>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--この CDATA セクションにはパッケージのレイアウト情報が含まれています。(x,y) 座標、幅、高さなどの情報が含まれます。-->
+<!--このセクションを手動で編集して間違った場合は、セクションを削除できます。-->
+<!--パッケージは正常に読み込むことができますが、以前のレイアウト情報は失われ、デザイン画面上の要素が自動的に再配置されます。-->
+<Objects
+  Version="8">
+  <!--次の各ノードには、実行時の動作に影響しないプロパティが含まれます。-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="232.333333333334,42"
+          Id="Package\Extract Sample Currency Data"
+          TopLeft="93.7499986030162,73.6666647151665" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Extract Sample Currency Data">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="232.333333333334,42"
+          Id="Package\Extract Sample Currency Data\Extract Sample Currency Data"
+          TopLeft="177.968747348059,81.2499978476101" />
+        <NodeLayout
+          Size="232.333333333334,42"
+          Id="Package\Extract Sample Currency Data\Lookup Currency Key"
+          TopLeft="177.968747348059,183.842587978506" />
+        <EdgeLayout
+          Id="Package\Extract Sample Currency Data.Paths[フラット ファイル ソースの出力]"
+          TopLeft="294.135414014726,123.24999784761">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.5925901308963"
+              Start="0,0"
+              End="0,53.0925901308963">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,53.0925901308963" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="232.333333333334,42"
+          Id="Package\Extract Sample Currency Data\Lookup Date Key"
+          TopLeft="177.968747348059,286.435178109403" />
+        <EdgeLayout
+          Id="Package\Extract Sample Currency Data.Paths[参照の一致出力]"
+          TopLeft="294.135414014726,225.842587978506">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60.5925901308963"
+              Start="0,0"
+              End="0,53.0925901308963">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,53.0925901308963" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-34.16447265625,21.0077208466981,68.3289453125,11.0771484375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="このデータ フローは、ファイルからデータを抽出し、&#xD;&#xA;DimCurrency テーブルの CurrencyKey 列の値と DimDate テーブルの DateKey 列の値を参照して、&#xD;&#xA;データを NewFactCurrencyRate テーブルに書き込みます。"
+          ParentId="Package\Extract Sample Currency Data"
+          FontInfo="{assembly:Null}"
+          Size="502.333333333334,72"
+          Id="e9ac4ecd-7aed-4601-accc-77541876b5c7"
+          TopLeft="80.7291656375552,3.16666867556389" />
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Extract Sample Currency Data\Lookup Currency Key">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Extract Sample Currency Data\Lookup Date Key">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimDate]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
